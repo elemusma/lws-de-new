@@ -492,7 +492,7 @@ function save({
       "data-aos-delay": testimonial.data_aos_delay
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: ``
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, "\u2B50\uFE0F\u2B50\uFE0F\u2B50\uFE0F\u2B50\uFE0F\u2B50\uFE0F"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
       style: {
         margin: '0px'
       }

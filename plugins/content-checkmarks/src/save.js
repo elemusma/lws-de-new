@@ -59,12 +59,14 @@ export default function save( { attributes } ) {
     return (
         <div className={`position-relative text-center ${checkmark.col_class}`} style={`${checkmark.col_style}`} data-aos={checkmark.data_aos} data-aos-delay={checkmark.data_aos_delay} data-aos-offset="0">
           
-          <div className={`d-flex`} style={{margin:'9px 0px'}}>
+          <div className={`d-flex`} style={{margin:'30px 0px'}}>
 
-            {/* <div className={``} style={{}}> */}
-			<RawHTML>{checkmark.content}</RawHTML>
-		  	<p className={`text-left`} style={{ cursor: 'pointer',margin:'0px',paddingLeft:'9px' }}><RichText.Content value={checkmark.title} /></p>
-            {/* </div> */}
+            <div className={`d-flex align-items-center justify-content-center`} style={{minWidth:'10px',height:'10px',background:'var(--accent-primary)',borderRadius:'50%',padding:'7px'}}>
+			<RawHTML>
+				{checkmark.content}
+			</RawHTML>
+            </div>
+		  	<p className={`text-left lead`} style={{ margin:'0px',paddingLeft:'9px' }}><RichText.Content value={checkmark.title} /></p>
           </div>
         </div>
     );

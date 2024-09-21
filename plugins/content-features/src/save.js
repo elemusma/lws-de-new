@@ -52,12 +52,17 @@ export default function save( { attributes } ) {
 {
   attributes.features.map((feature, index) => {
     return (
-        <div className={`position-relative text-center ${feature.col_class}`} style={`${feature.col_style}`} data-aos={feature.data_aos} data-aos-delay={feature.data_aos_delay} data-aos-offset="0">
+        <div className={`position-relative text-center ${feature.col_class}`} style={`padding:15px;${feature.col_style}`} data-aos={feature.data_aos} data-aos-delay={feature.data_aos_delay} data-aos-offset="0">
           
           <div className={``}>
-            <div className={`d-flex align-items-center justify-content-center`}>
-			<RawHTML>{feature.content}</RawHTML>
-		  	<h3 className={`bold`} style={{ cursor: 'pointer' }}><RichText.Content value={feature.title} /></h3>
+            <div className={`${feature.col_inner_class}`} style={`${feature.col_inner_style}`}>
+			<div className={`d-flex align-items-center justify-content-center`} style={`min-width:35px;height:35px;background:white;border-radius:50%;margin-right:10px;padding: 7px;`}>
+			<RawHTML>{feature.code_block}</RawHTML>
+			</div>
+			<div>
+		  	<h3 className={feature.title_class} style={feature.title_style}><RichText.Content value={feature.title} /></h3>
+			<span>{feature.content}</span>
+			</div>
             </div>
           </div>
         </div>

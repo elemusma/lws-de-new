@@ -73,9 +73,13 @@ export default function Edit( { attributes, setAttributes } ) {
 					col_class: '',
 					col_style: '',
 					col_id: '',
+					col_inner_class: 'd-flex align-items-center justify-content-md-center',
+					col_inner_style: '',
 					data_aos: 'fade-up',
 					data_aos_delay: '',
 					title: '',
+					title_class: 'bold',
+					title_style: '',
 					content: '',
 					code_block: ''
 				},
@@ -318,6 +322,29 @@ export default function Edit( { attributes, setAttributes } ) {
                 </div>
             </div>
 
+            <div style={{ display: 'flex' }}>
+                <div style={{ paddingRight: '25px' }}>
+                    <p style={{ marginBottom: '0px' }}>Col Inner Class</p>
+                    <input
+                        type="text"
+                        value={feature.col_inner_class}
+                        onChange={(content) =>
+                            updateFeature(index, 'col_inner_class', content.target.value)
+                        }
+                    />
+                </div>
+                <div style={{ paddingRight: '25px' }}>
+                    <p style={{ marginBottom: '0px' }}>Col Inner Style</p>
+                    <input
+                        type="text"
+                        value={feature.col_inner_style}
+                        onChange={(content) =>
+                            updateFeature(index, 'col_inner_style', content.target.value)
+                        }
+                    />
+                </div>
+            </div>
+
             <div style={{ display: 'flex', paddingTop: '25px' }}>
                 <div
                     style={{
@@ -333,12 +360,12 @@ export default function Edit( { attributes, setAttributes } ) {
 
                         <textarea
                             id="colCodeTextarea"
-                            value={feature.content}
+                            value={feature.code_block}
                             onChange={(content) =>
-                                updateFeature(index, 'content', content.target.value)
+                                updateFeature(index, 'code_block', content.target.value)
                             }
                             placeholder={__('here goes text')}
-                            style={{ width: '100%', height: '100px' }}
+                            style={{ width: '100%', height: '215px' }}
                         />
                     </div>
                     <div style={{ width: '49%' }}>
@@ -357,6 +384,40 @@ export default function Edit( { attributes, setAttributes } ) {
                                 updateFeature(index, 'title', content)
                             }
                             placeholder={__('')}
+                        />
+						<div style={{ display: 'flex' }}>
+                <div style={{ paddingRight: '25px' }}>
+                    <p style={{ marginBottom: '0px' }}>Title Class</p>
+                    <input
+                        type="text"
+                        value={feature.title_class}
+                        onChange={(content) =>
+                            updateFeature(index, 'title_class', content.target.value)
+                        }
+                    />
+                </div>
+                <div style={{ paddingRight: '24px' }}>
+                    <p style={{ marginBottom: '0px' }}>Feature Style</p>
+                    <input
+                        type="text"
+                        value={feature.title_style}
+                        onChange={(content) =>
+                            updateFeature(index, 'title_style', content.target.value)
+                        }
+                    />
+                </div>
+            </div>
+						<p style={{ marginBottom: '0px' }}>
+                            <strong>Feature Content</strong>
+                        </p>
+						<textarea
+                            id="colCodeTextarea"
+                            value={feature.content}
+                            onChange={(content) =>
+                                updateFeature(index, 'content', content.target.value)
+                            }
+                            placeholder={__('here goes text')}
+                            style={{ width: '100%', height: '100px' }}
                         />
                     </div>
                 </div>

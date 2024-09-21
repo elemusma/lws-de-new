@@ -85,9 +85,13 @@ function Edit({
         col_class: '',
         col_style: '',
         col_id: '',
+        col_inner_class: 'd-flex align-items-center justify-content-md-center',
+        col_inner_style: '',
         data_aos: 'fade-up',
         data_aos_delay: '',
         title: '',
+        title_class: 'bold',
+        title_style: '',
         content: '',
         code_block: ''
       }]
@@ -337,6 +341,39 @@ function Edit({
                   onChange: content => updateFeature(index, 'data_aos_delay', content.target.value)
                 })]
               })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+              style: {
+                display: 'flex'
+              },
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                style: {
+                  paddingRight: '25px'
+                },
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+                  style: {
+                    marginBottom: '0px'
+                  },
+                  children: "Col Inner Class"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+                  type: "text",
+                  value: feature.col_inner_class,
+                  onChange: content => updateFeature(index, 'col_inner_class', content.target.value)
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                style: {
+                  paddingRight: '25px'
+                },
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+                  style: {
+                    marginBottom: '0px'
+                  },
+                  children: "Col Inner Style"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+                  type: "text",
+                  value: feature.col_inner_style,
+                  onChange: content => updateFeature(index, 'col_inner_style', content.target.value)
+                })]
+              })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               style: {
                 display: 'flex',
@@ -361,12 +398,12 @@ function Edit({
                     })
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("textarea", {
                     id: "colCodeTextarea",
-                    value: feature.content,
-                    onChange: content => updateFeature(index, 'content', content.target.value),
+                    value: feature.code_block,
+                    onChange: content => updateFeature(index, 'code_block', content.target.value),
                     placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('here goes text'),
                     style: {
                       width: '100%',
-                      height: '100px'
+                      height: '215px'
                     }
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
@@ -390,6 +427,55 @@ function Edit({
                     },
                     onChange: content => updateFeature(index, 'title', content),
                     placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('')
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                    style: {
+                      display: 'flex'
+                    },
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                      style: {
+                        paddingRight: '25px'
+                      },
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+                        style: {
+                          marginBottom: '0px'
+                        },
+                        children: "Title Class"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+                        type: "text",
+                        value: feature.title_class,
+                        onChange: content => updateFeature(index, 'title_class', content.target.value)
+                      })]
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                      style: {
+                        paddingRight: '24px'
+                      },
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+                        style: {
+                          marginBottom: '0px'
+                        },
+                        children: "Feature Style"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+                        type: "text",
+                        value: feature.title_style,
+                        onChange: content => updateFeature(index, 'title_style', content.target.value)
+                      })]
+                    })]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+                    style: {
+                      marginBottom: '0px'
+                    },
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
+                      children: "Feature Content"
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("textarea", {
+                    id: "colCodeTextarea",
+                    value: feature.content,
+                    onChange: content => updateFeature(index, 'content', content.target.value),
+                    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('here goes text'),
+                    style: {
+                      width: '100%',
+                      height: '100px'
+                    }
                   })]
                 })]
               })
@@ -573,24 +659,31 @@ function save({
           children: attributes.features.map((feature, index) => {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
               className: `position-relative text-center ${feature.col_class}`,
-              style: `${feature.col_style}`,
+              style: `padding:15px;${feature.col_style}`,
               "data-aos": feature.data_aos,
               "data-aos-delay": feature.data_aos_delay,
               "data-aos-offset": "0",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                 className: ``,
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                  className: `d-flex align-items-center justify-content-center`,
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.RawHTML, {
-                    children: feature.content
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
-                    className: `bold`,
-                    style: {
-                      cursor: 'pointer'
-                    },
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText.Content, {
-                      value: feature.title
+                  className: `${feature.col_inner_class}`,
+                  style: `${feature.col_inner_style}`,
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                    className: `d-flex align-items-center justify-content-center`,
+                    style: `min-width:35px;height:35px;background:white;border-radius:50%;margin-right:10px;padding: 7px;`,
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.RawHTML, {
+                      children: feature.code_block
                     })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+                      className: feature.title_class,
+                      style: feature.title_style,
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText.Content, {
+                        value: feature.title
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                      children: feature.content
+                    })]
                   })]
                 })
               })

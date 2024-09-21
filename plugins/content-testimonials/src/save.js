@@ -56,6 +56,7 @@ export default function save( { attributes } ) {
           
           <div className={``} data-aos={testimonial.data_aos} data-aos-delay={testimonial.data_aos_delay}>
             <div className={``}>
+			<div>⭐️⭐️⭐️⭐️⭐️</div>
               <p style={{ margin: '0px' }}><RichText.Content value={testimonial.content} /></p>
             </div>
 		  <p className={`bold`} style={{ cursor: 'pointer' }}><RichText.Content value={testimonial.title} /></p>
