@@ -87,16 +87,45 @@ function Edit({
         col_id: '',
         data_aos: 'fade-up',
         data_aos_delay: '',
+        img: '',
+        alt: '',
+        img_style: '',
+        img_class: '',
         title: '',
         content: '',
         code_block: ''
       }]
     });
   };
+
+  // const updateTestimonial = ( testimonialIndex, field, value ) => {
+  // 	setAttributes( {
+  // 		testimonials: testimonials.map( ( testimonial, index ) => {
+  // 			if ( index === testimonialIndex ) {
+  // 				return {
+  // 					...testimonial,
+  // 					[ field ]: value,
+  // 				};
+  // 			}
+  // 			return testimonial;
+  // 		} ),
+  // 	} );
+  // };
+
   const updateTestimonial = (testimonialIndex, field, value) => {
     setAttributes({
       testimonials: testimonials.map((testimonial, index) => {
         if (index === testimonialIndex) {
+          // Check if value is an object (for handling multiple fields like img and alt)
+          if (typeof value === 'object' && value !== null) {
+            return {
+              ...testimonial,
+              // Spread the value object to update multiple fields
+              ...value
+            };
+          }
+
+          // Default case: single value for a single field
           return {
             ...testimonial,
             [field]: value
@@ -310,6 +339,90 @@ function Edit({
     }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       style: {
         display: 'flex',
+        justifyContent: 'space-between',
+        marginTop: '25px'
+      }
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      style: {
+        width: '49%'
+      }
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      src: testimonial.img,
+      style: {
+        width: '200px',
+        height: 'auto'
+      }
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
+      onSelect: media => updateTestimonial(index, 'img', {
+        img: media.url,
+        alt: media.alt
+      }),
+      type: "image",
+      allowedTypes: ['image'],
+      value: testimonial.img,
+      render: ({
+        open
+      }) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, testimonial.img && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+        className: ``,
+        style: {
+          fontSize: '80%',
+          lineHeight: '1.2'
+        }
+      }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Alt Text:'), " ", testimonial.alt), testimonial.img && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+        isLink: true,
+        isDestructive: true,
+        onClick: () => updateTestimonial(index, 'img', '')
+      }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Remove Col Image')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+        onClick: open,
+        icon: "upload",
+        className: "editor-media-placeholder__button is-button is-default is-large"
+      }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Select Col Image')))
+    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      style: {
+        display: 'flex'
+      }
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      style: {
+        paddingRight: '25px',
+        width: '49%'
+      }
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+      style: {
+        marginBottom: '0px'
+      }
+    }, "Img Class"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+      type: "text",
+      style: {},
+      value: testimonial.img_class,
+      onChange: content => updateTestimonial(index, 'img_class', content.target.value)
+    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      style: {
+        width: '49%'
+      }
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+      style: {
+        marginBottom: '0px'
+      }
+    }, "Img Style"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+      type: "text",
+      style: {},
+      value: testimonial.img_style,
+      onChange: content => updateTestimonial(index, 'img_style', content.target.value)
+    }))), " "), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      style: {
+        width: '49%'
+      }
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Code Block"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("textarea", {
+      value: testimonial.code_block,
+      onChange: content => updateTestimonial(index, 'code_block', content.target.value),
+      style: {
+        width: '100%',
+        height: '200px'
+      },
+      placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Code Block')
+    }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      style: {
+        display: 'flex',
         paddingTop: '25px'
       }
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -343,8 +456,13 @@ function Edit({
           col_id: '',
           data_aos: 'fade-up',
           data_aos_delay: '',
-          title: 'new column',
-          content: 'new column content'
+          img: '',
+          alt: '',
+          img_style: '',
+          img_class: '',
+          title: '',
+          content: '',
+          code_block: ''
         };
         newTestimonials.splice(index, 0, newColumn); // Insert the new column at the current index
         setAttributes({
@@ -352,6 +470,47 @@ function Edit({
         }); // Update the columns attribute with the new array
       }
     }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Add Testimonial Above')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+      style: {
+        border: '1px solid'
+      },
+      onClick: () => {
+        const newTestimonials = [...testimonials]; // Create a copy of the columns array
+        const newColumn = {
+          // Define a new column object
+          col_class: '',
+          col_style: '',
+          col_id: '',
+          data_aos: 'fade-up',
+          data_aos_delay: '',
+          img: '',
+          alt: '',
+          img_style: '',
+          img_class: '',
+          title: '',
+          content: '',
+          code_block: ''
+        };
+        newTestimonials.splice(index + 1, 0, newColumn); // Insert the new column at the current index
+        setAttributes({
+          testimonials: newTestimonials
+        }); // Update the columns attribute with the new array
+      }
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Add Testimonial Below')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+      style: {
+        border: '1px solid',
+        marginTop: '10px'
+      },
+      onClick: () => {
+        const newTestimonials = [...testimonials];
+        const duplicateFeature = {
+          ...testimonial
+        }; // Copy the testimonial object
+        newTestimonials.splice(index + 1, 0, duplicateFeature); // Insert the copy after the current testimonial
+        setAttributes({
+          testimonials: newTestimonials
+        });
+      }
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Duplicate Feature')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
       style: {
         border: '1px solid'
       },
@@ -363,7 +522,39 @@ function Edit({
           testimonials: newTestimonials
         });
       }
-    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Remove Testimonial')));
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Remove Testimonial')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+      style: {
+        border: '1px solid',
+        marginTop: '10px'
+      },
+      onClick: () => {
+        if (index === 0) return; // Prevent moving the first item up
+        const newTestimonials = [...testimonials];
+        const temp = newTestimonials[index - 1];
+        newTestimonials[index - 1] = newTestimonials[index];
+        newTestimonials[index] = temp;
+        setAttributes({
+          testimonials: newTestimonials
+        });
+      },
+      disabled: index === 0 // Disable if it's the first item
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Move Up')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+      style: {
+        border: '1px solid',
+        marginTop: '10px'
+      },
+      onClick: () => {
+        if (index === testimonials.length - 1) return; // Prevent moving the last item down
+        const newTestimonials = [...testimonials];
+        const temp = newTestimonials[index + 1];
+        newTestimonials[index + 1] = newTestimonials[index];
+        newTestimonials[index] = temp;
+        setAttributes({
+          testimonials: newTestimonials
+        });
+      },
+      disabled: index === testimonials.length - 1 // Disable if it's the last item
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Move Down')));
   }))));
 }
 
@@ -492,7 +683,17 @@ function save({
       "data-aos-delay": testimonial.data_aos_delay
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: ``
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, "\u2B50\uFE0F\u2B50\uFE0F\u2B50\uFE0F\u2B50\uFE0F\u2B50\uFE0F"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.RawHTML, null, testimonial.code_block), testimonial.img && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: '',
+      style: {
+        display: 'inline-block'
+      }
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      src: testimonial.img,
+      alt: testimonial.alt,
+      className: testimonial.img_class,
+      style: `border-radius: 50%;height: 100px;width: 100px;object-fit: cover;object-position: top;${testimonial.img_style}`
+    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, "\u2B50\uFE0F\u2B50\uFE0F\u2B50\uFE0F\u2B50\uFE0F\u2B50\uFE0F"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
       style: {
         margin: '0px'
       }

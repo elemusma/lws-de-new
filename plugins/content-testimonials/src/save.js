@@ -56,6 +56,17 @@ export default function save( { attributes } ) {
           
           <div className={``} data-aos={testimonial.data_aos} data-aos-delay={testimonial.data_aos_delay}>
             <div className={``}>
+				<RawHTML>{testimonial.code_block}</RawHTML>
+			{ testimonial.img && (
+			<div className={''} style={{display: 'inline-block'}}>
+			<img
+				src={ testimonial.img }
+				alt={ testimonial.alt }
+				className={testimonial.img_class}
+				style={`border-radius: 50%;height: 100px;width: 100px;object-fit: cover;object-position: top;${testimonial.img_style}`}
+			/>
+			</div>
+)}
 			<div>⭐️⭐️⭐️⭐️⭐️</div>
               <p style={{ margin: '0px' }}><RichText.Content value={testimonial.content} /></p>
             </div>
