@@ -549,6 +549,7 @@ export default function Edit( { attributes, setAttributes } ) {
 									updateColumn( index, 'content', content.target.value )
 								}
 								placeholder={ __( 'Column Content' ) }
+								style={{height:'200px',width:'100%'}}
 								/>
 								</div>
 								</div>

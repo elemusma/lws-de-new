@@ -1,5 +1,7 @@
 <?php
 
+echo get_template_part('lead-magnet/lead-magnet');
+
 echo '<footer>';
 echo '<section class="bg-accent-secondary" style="padding-top:50px;padding-bottom:25px;">';
 echo '<div class="container">';

@@ -60,7 +60,7 @@ export default function save( { attributes } ) {
 			<RawHTML>{feature.code_block}</RawHTML>
 			</div>
 			<div>
-		  	<h3 className={feature.title_class} style={feature.title_style}><RichText.Content value={feature.title} /></h3>
+		  	<h3 className={`h4 ${feature.title_class}`} style={feature.title_style}><RichText.Content value={feature.title} /></h3>
 			<span>{feature.content}</span>
 			</div>
             </div>

@@ -1,4 +1,51 @@
 // Get all buttons that open modals
+var modalBtnsCustom = document.getElementsByClassName("openModalBtnCustom");
+
+// Add click event listener for modal buttons
+Array.from(modalBtnsCustom).forEach(button => {
+  button.onclick = function() {
+    var modalId = this.getAttribute('data-modal-id');
+    var modal = document.getElementById(modalId);
+    modal.style.display = "flex";
+  }
+});
+
+// Get all elements with class="close-custom" (close buttons)
+var closeBtnsCustom = document.getElementsByClassName("close-custom");
+
+// Function to close modals
+function closeModal(modal) {
+  modal.style.display = "none";
+}
+
+// Add click event listener for close buttons
+Array.from(closeBtnsCustom).forEach(button => {
+  button.onclick = function() {
+    var modal = this.closest('.modal-custom');
+    closeModal(modal);
+  }
+});
+
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target.classList.contains('modal-custom')) {
+    event.target.style.display = "none";
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// Get all buttons that open modals
 var modalBtns = document.getElementsByClassName("openModalBtn");
 
 // Loop through all buttons and add click event listeners
@@ -44,6 +91,25 @@ window.onclick = function(event) {
   //   event.target.classList.remove('active');
   // }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // let openModalArrowFunction = (elem) => {
 //     elemID = elem.getAttribute('id');
