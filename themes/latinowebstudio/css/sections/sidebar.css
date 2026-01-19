@@ -1,0 +1,21 @@
+ul.small.sidebar-cta {
+  list-style: none;
+  padding:0px;
+}
+
+ul.small.sidebar-cta li {
+  position: relative;
+  padding-left: 20px;
+}
+
+ul.small.sidebar-cta li::before {
+    content: '';
+    position: absolute;
+    left: 3.5px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    background-image: url(http://test-drive-technologies.local/wp-content/uploads/2025/11/Checkmark-White.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
